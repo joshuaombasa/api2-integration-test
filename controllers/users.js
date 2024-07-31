@@ -11,7 +11,7 @@ usersRouter.get('/', async (request, response, next) => {
   }
 })
 
-usersRouterRouter.get('/:id', async (request, response, next) => {
+usersRouter.get('/:id', async (request, response, next) => {
   try {
     const user = await User.findById(request.params.id)
     if (!user) {

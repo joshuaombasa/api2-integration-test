@@ -12,6 +12,7 @@ boatsRouter.get('/', async (request, response, next) => {
 })
 
 boatsRouter.get('/:id', async (request, response, next) => {
+
   try {
     const boat = await Boat.findById(request.params.id)
     if (!boat) {
@@ -24,6 +25,7 @@ boatsRouter.get('/:id', async (request, response, next) => {
 })
 
 boatsRouter.post('/', async (request, response, next) => {
+
   const { name, price, type } = request.body
   const boatObject = new Boat({ name, price, type })
   try {
@@ -35,6 +37,7 @@ boatsRouter.post('/', async (request, response, next) => {
 })
 
 boatsRouter.put('/', async (request, response, next) => {
+
   const { name, price, type } = request.body
 
   try {
@@ -49,6 +52,7 @@ boatsRouter.put('/', async (request, response, next) => {
 })
 
 boatsRouter.delete('/:id', async (request, response, next) => {
+  
   try {
     await Boat.findByIdAndDelete(request.params.id)
     response.sendStatus(204)
