@@ -6,11 +6,13 @@ const Boat = require('../models/boat')
 const api = supertest(app)
 
 beforeEach(async () => {
+
   await Boat.deleteMany({})
   for (let boat of helper.boatsData) {
     const boatObject = new Boat(boat)
     await boatObject.save()
   }
+  
 })
 
 describe('when there are intially some boats', () => {
